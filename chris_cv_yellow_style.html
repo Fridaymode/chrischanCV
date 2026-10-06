@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chris Chan - IT Infrastructure CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background-color: #e5e7eb;
+        font-family: 'Montserrat', sans-serif;
+        color: #111;
+        line-height: 1.5;
+        padding: 40px 20px;
+    }
+    .cv-container {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* TOP DARK BAR */
+    .top-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 130px;
+        background-color: #212226;
+        z-index: 1;
+    }
+
+    /* HEADER ROW */
+    .header-row {
+        position: relative;
+        z-index: 2;
+        display: flex;
+    }
+    .header-left {
+        width: 38%;
+        padding: 40px 35px 30px 35px;
+        background-color: transparent;
+    }
+    .profile-photo {
+        width: 100%;
+        aspect-ratio: 3/4;
+        background-color: #cbd5e1;
+        background-image: url('myicon.jpg');
+        background-size: cover;
+        background-position: center;
+        display: block;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .header-right {
+        width: 62%;
+        background-color: #f7ca18; /* Vibrant Yellow */
+        padding: 50px 40px 40px 40px;
+    }
+    
+    .name-title {
+        font-size: 2.8em;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #1a1a1a;
+        line-height: 1.1;
+        text-transform: uppercase;
+    }
+    .job-title {
+        font-size: 1.05em;
+        font-weight: 500;
+        letter-spacing: 2.5px;
+        color: #333;
+        margin-top: 8px;
+        text-transform: uppercase;
+    }
+    
+    .section-heading {
+        font-size: 1.1em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-top: 30px;
+        color: #111;
+    }
+    .underline {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background-color: #111;
+        margin-top: 8px;
+        margin-bottom: 15px;
+    }
+    .about-text {
+        font-size: 0.9em;
+        font-weight: 500;
+        color: #222;
+        text-align: justify;
+    }
+
+    /* BODY ROW */
+    .body-row {
+        display: flex;
+        background-color: #ffffff;
+    }
+    
+    /* BODY LEFT (Yellow) */
+    .body-left {
+        width: 58%;
+        background-color: #f7ca18;
+        padding: 40px 40px;
+    }
+    
+    .experience-item {
+        margin-bottom: 25px;
+    }
+    .exp-role {
+        font-size: 1.05em;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 5px;
+    }
+    .exp-meta {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .exp-date {
+        background-color: #1a1a1a;
+        color: #f7ca18;
+        font-size: 0.7em;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 2px;
+        margin-right: 12px;
+        white-space: nowrap;
+    }
+    .exp-company {
+        font-size: 0.85em;
+        font-weight: 600;
+        color: #222;
+    }
+    .exp-desc {
+        font-size: 0.85em;
+        font-weight: 500;
+        color: #222;
+        margin-left: 0;
+        line-height: 1.6;
+    }
+    .exp-desc li {
+        margin-bottom: 5px;
+        margin-left: 15px;
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .skill-block h4 {
+        font-size: 0.85em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: #111;
+    }
+    .skill-block p {
+        font-size: 0.85em;
+        font-weight: 500;
+        color: #222;
+    }
+
+    /* BODY RIGHT (Gray) */
+    .body-right {
+        width: 42%;
+        background-color: #f0f0f0;
+        padding: 40px 40px;
+    }
+    
+    .contact-item {
+        margin-bottom: 18px;
+    }
+    .contact-label {
+        font-size: 0.85em;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 2px;
+    }
+    .contact-val {
+        font-size: 0.85em;
+        font-weight: 400;
+        color: #444;
+    }
+    
+    .edu-item {
+        margin-bottom: 20px;
+    }
+    .edu-degree {
+        font-size: 0.9em;
+        font-weight: 700;
+        color: #111;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+    .edu-school {
+        font-size: 0.85em;
+        font-weight: 500;
+        color: #444;
+    }
+    .edu-date {
+        font-size: 0.8em;
+        font-weight: 600;
+        color: #666;
+        margin-top: 2px;
+    }
+    
+    .cert-item {
+        font-size: 0.85em;
+        font-weight: 500;
+        color: #333;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+    }
+    .cert-item i {
+        margin-top: 4px;
+        margin-right: 10px;
+        font-size: 0.9em;
+        color: #111;
+    }
+
+    @media (max-width: 768px) {
+        .header-row, .body-row { flex-direction: column; }
+        .header-left, .header-right, .body-left, .body-right { width: 100%; }
+        .top-bar { height: 100px; }
+        .profile-photo { width: 60%; margin: 0 auto; aspect-ratio: 1; border-radius: 50%; }
+    }
+</style>
+</head>
+<body>
+
+<div class="cv-container">
+    <!-- Dark Background Strip at Top -->
+    <div class="top-bar"></div>
+
+    <!-- HEADER SECTION -->
+    <div class="header-row">
+        <!-- Photo overlapping dark bar -->
+        <div class="header-left">
+            <div class="profile-photo"></div>
+        </div>
+        
+        <!-- Name & About (Yellow Bg) -->
+        <div class="header-right">
+            <h1 class="name-title">CHRIS CHAN</h1>
+            <h2 class="job-title">IT Infrastructure Engineer</h2>
+            
+            <div class="section-heading">ABOUT ME</div>
+            <span class="underline"></span>
+            <p class="about-text">
+                Passionate and results-driven IT Infrastructure Engineer with 6+ years of experience in system administration, virtualization (VMware/Nutanix), and cloud integrations. Adept at managing mission-critical enterprise environments, developing automated deployment scripts (PowerShell, Python), and ensuring high availability.
+            </p>
+        </div>
+    </div>
+
+    <!-- MAIN BODY SECTION -->
+    <div class="body-row">
+        
+        <!-- LEFT COLUMN: Work Experience & Skills (Yellow Bg) -->
+        <div class="body-left">
+            <div class="section-heading">WORK EXPERIENCE</div>
+            <span class="underline"></span>
+            
+            <div class="experience-item">
+                <div class="exp-role">Assistant System Engineer</div>
+                <div class="exp-meta">
+                    <span class="exp-date">Jul 2025 - Present</span>
+                    <span class="exp-company">ATAL Limited</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Administer Windows patching and maintenance lifecycles across mission-critical environments.</li>
+                    <li>Develop automated PowerShell and BigFix scripts to resolve core system errors.</li>
+                    <li>Maintain high-availability hardware (E-channels, OCR) and support IT parts procurement.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-role">Contract Programmer (Tech Consultant)</div>
+                <div class="exp-meta">
+                    <span class="exp-date">May 2024 - Apr 2025</span>
+                    <span class="exp-company">CL Technical Services (Assigned to LandsD)</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Architected AWS EC2 instances and configured SoftEther VPN for remote secure access.</li>
+                    <li>Engineered PowerShell scripts for intelligent storage and expired backup deletion.</li>
+                    <li>Optimized proxy routing by organizing Nginx hosts and maintained Nutanix VM infrastructure.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-role">Assistant Tech Consultant (Infra)</div>
+                <div class="exp-meta">
+                    <span class="exp-date">2021 - 2024</span>
+                    <span class="exp-company">HKBN JOS (HK) Limited</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Administered VMware vCenter environments and conducted hardware health checks.</li>
+                    <li>Resolved Veeam backup failures and orchestrated proactive disaster recovery drills.</li>
+                    <li>Monitored servers, installed patches, and checked hardware/server errors if needed to go on-site.</li>
+                    <li>Maintained communication with customers to meet their needs.</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="exp-role">Assistant Engineer (NOC)</div>
+                <div class="exp-meta">
+                    <span class="exp-date">2018 - 2021</span>
+                    <span class="exp-company">China Unicom (HK) Limited</span>
+                </div>
+                <ul class="exp-desc">
+                    <li>Delivered 24/7 data center operational support and monitored IT system health.</li>
+                    <li>Conducted voice route quality control and data analysis.</li>
+                </ul>
+            </div>
+
+            <div class="section-heading">CORE SKILLS</div>
+            <span class="underline"></span>
+            <div class="skills-grid">
+                <div class="skill-block">
+                    <h4>System & VM</h4>
+                    <p>Windows Server, Linux (Ubuntu), VMware, Nutanix</p>
+                </div>
+                <div class="skill-block">
+                    <h4>Cloud & Network</h4>
+                    <p>AWS EC2 / VPN, Nginx, TCP/IP</p>
+                </div>
+                <div class="skill-block">
+                    <h4>Automation</h4>
+                    <p>PowerShell, Python, BigFix</p>
+                </div>
+                <div class="skill-block">
+                    <h4>Operations</h4>
+                    <p>Veeam Backup, Nagios XI</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: Contact, Education, Certs (Gray Bg) -->
+        <div class="body-right">
+            <div class="section-heading">CONTACT</div>
+            <span class="underline"></span>
+            
+            <div class="contact-item">
+                <div class="contact-label">Address</div>
+                <div class="contact-val">Sheung Shui, N.T., Hong Kong</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Phone</div>
+                <div class="contact-val">+852 6857 8622</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Email</div>
+                <div class="contact-val">yuchunchan727@gmail.com</div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-label">Availability</div>
+                <div class="contact-val">Immediate</div>
+            </div>
+
+            <div class="section-heading" style="margin-top: 40px;">EDUCATION</div>
+            <span class="underline"></span>
+            
+            <div class="edu-item">
+                <div class="edu-degree">BSc (Hons) Information Technology</div>
+                <div class="edu-school">University of the West of England, Bristol<br>(with VTC SHAPE)</div>
+                <div class="edu-date">Expected Dec 2026</div>
+            </div>
+            
+            <div class="edu-item">
+                <div class="edu-degree">Higher Diploma in Computer Engineering</div>
+                <div class="edu-school">HKIVE (Sha Tin)</div>
+                <div class="edu-date">2018 - 2020</div>
+            </div>
+
+            <div class="section-heading" style="margin-top: 40px;">CERTIFICATIONS</div>
+            <span class="underline"></span>
+            
+            <div class="cert-item">
+                <i class="fas fa-certificate"></i>
+                <span>Windows Server Hybrid Administrator Associate (AZ-800 & AZ-801)</span>
+            </div>
+            <div class="cert-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Security, Compliance, and Identity Fundamentals (SC-900)</span>
+            </div>
+            <div class="cert-item">
+                <i class="fab fa-linux"></i>
+                <span>Linux Professional Institute LPIC-1</span>
+            </div>
+            
+            <div class="section-heading" style="margin-top: 40px;">LANGUAGES</div>
+            <span class="underline"></span>
+            <div class="cert-item">
+                <i class="fas fa-globe"></i>
+                <span>Cantonese (Native), English (General), Mandarin (Fluent)</span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
